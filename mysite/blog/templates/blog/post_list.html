@@ -1,0 +1,24 @@
+ 
+{% extends 'blog/base.html' %}
+
+        {% block content %}   
+            {% for post in posts %}
+                <div class="post">
+                    <div class="date">
+                        <p>published: {{ post.published_date }}</p>
+                    </div>
+                    <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+                    <p>{{ post.text|linebreaksbr }}
+                   </p>
+                </div>
+            {% endfor %}
+        {% endblock %}
+
+
+
+<!-- https://s-media-cache-ak0.pinimg.com/736x/05/56/ae/0556aea53044610a07eb04d589e4121f-->
+
+<!--batman-beyond-funny-nightwing-young-justice.jpg
+
+
+http://youngjustice.wikia.com/wiki/List_of_running_-->

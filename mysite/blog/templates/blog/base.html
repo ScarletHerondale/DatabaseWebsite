@@ -1,0 +1,47 @@
+{% load staticfiles %}
+
+<html>
+    <head>
+      <title>Brekkered.</title>
+      <link rel="stylesheet" href="{% static 'css/blog.css' %}"> 
+      <link href="https://fonts.googleapis.com/css?family=Supermercado+One" rel="stylesheet"   type="text/css">
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet"> 
+     <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+
+<style>
+
+  /*body {background-color: DBDACC;}
+    body {background-color: F2E1E4;}
+   body {background-color: F7EBED;}
+  */
+
+  body {background-color: FFFFFF;}
+
+</style>
+</head>
+
+<body>
+    <div class="page-header">
+        <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+        <h1><a href="/">No Mourners. No Funerals.</a></h1>
+    </div>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+ 
+</html>
+
+<!-- https://s-media-cache-ak0.pinimg.com/736x/05/56/ae/0556aea53044610a07eb04d589e4121f-->
+
+<!--batman-beyond-funny-nightwing-young-justice.jpg
+
+
+http://youngjustice.wikia.com/wiki/List_of_running_-->
