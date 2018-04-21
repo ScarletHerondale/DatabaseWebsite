@@ -1,12 +1,24 @@
 
 from django.conf.urls import url
-from . import views
+from django.contrib import admin
+
+from django.contrib.auth import views
+
+
 
 urlpatterns = [
     url(r'^$', views.post_list, name='post_list'),
     url(r'^post/(?P<pk>\d+)/$', views.post_detail, name='post_detail'),
     url(r'^post/new/$', views.post_new, name='post_new'),
     url(r'^post/(?P<pk>\d+)/edit/$', views.post_edit, name='post_edit'),
+    url(r'^drafts/$', views.post_draft_list, name='post_draft_list'),
+    url(r'^post/(?P<pk>\d+)/publish/$', views.post_publish, name='post_publish'),
+    url(r'^post/(?P<pk>\d+)/remove/$', views.post_remove, name='post_remove')
+    url(r'^accounts/login/$', views.login, name='login')
+    url(r'^accounts/logout/$', views.logout, name='logout', kwargs={'next_page': '/'}),
+    
+    url(r'^admin/', admin.site.urls),
+    url(r'', include('blog.urls')),
 
 ]
 
@@ -18,3 +30,5 @@ urlpatterns = [
 # – this part is trickier. It means that Django will take everything that you place here and transfer it to a view as a variable called pk. (Note that this matches the name we gave the primary key variable back in blog/templates/blog/post_list.html!) \d also tells us that it can only be a digit, not a letter (so everything between 0 and 9). + means that there needs to be one or more digits there. So something like http://127.0.0.1:8000/post// is not valid, but http://127.0.0.1:8000/post/1234567890/ is perfectly OK!
 # / – then we need a / again.
 # $ – "the end"!
+
+
